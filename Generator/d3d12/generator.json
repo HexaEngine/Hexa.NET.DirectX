@@ -1,0 +1,46 @@
+{
+  "Namespace": "Hexa.NET.D3D12",
+  "ApiName": "D3D12",
+  "LibName": "d3d12",
+  "Usings": [ "Hexa.NET.DXGI", "Hexa.NET.D3DCommon" ],
+  "GenerateSizeOfStructs": false,
+  "GenerateMetadata": true,
+  "BoolType": 1,
+  "TypeMappings": {
+    "DXGI_USAGE": "uint",
+    "RECT": "Rect32",
+    "D3D12_RECT": "Rect32",
+    "POINT": "Point32",
+    "SIZE_T": "nuint",
+    "LUID": "Luid",
+    "IID": "Guid",
+    "LONG_PTR": "nint",
+    "APP_DEPRECATED_HRESULT": "HResult",
+    "SECURITY_ATTRIBUTES": "SecurityAttributes",
+    "D3D11_TRACE_COMPONENT_MASK": "uint",
+    "D3D11_TRACE_MISC_OPERATIONS_MASK": "uint",
+    "ID3DBlob": "ID3D10Blob",
+    "D3D12_GPU_VIRTUAL_ADDRESS": "ulong",
+    "D3D_PRIMITIVE_TOPOLOGY": "D3D12PrimitiveTopology"
+  },
+  "IgnoredEnums": [
+    "D3D_FEATURE_LEVEL",
+    "D3D_SRV_DIMENSION",
+    "DXGI_FORMAT",
+    "D3D_PRIMITIVE",
+    "D3D_TESSELLATOR_PARTITIONING",
+    "_D3D_CBUFFER_TYPE",
+    "D3D_RESOURCE_RETURN_TYPE",
+    "D3D_TESSELLATOR_DOMAIN",
+    "D3D_TESSELLATOR_OUTPUT_PRIMITIVE"
+  ],
+  "IgnoredTypes": [
+    "DXGI_SAMPLE_DESC",
+    "DXGI_RATIONAL"
+  ],
+  "IgnoredDelegates": [
+    "PFN_D3D12_CREATE_DEVICE",
+    "PFN_D3D12_GET_DEBUG_INTERFACE",
+    "PFN_D3D12_GET_INTERFACE"
+  ]
+}

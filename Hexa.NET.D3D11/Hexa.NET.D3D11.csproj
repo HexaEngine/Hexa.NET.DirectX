@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0;net8.0;netstandard2.0;netstandard2.1</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<LangVersion>12</LangVersion>
+
+		<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+		<EnableSingleFileAnalyzer>true</EnableSingleFileAnalyzer>
+		<EnableAotAnalyzer>true</EnableAotAnalyzer>
+		<IsAotCompatible>true</IsAotCompatible>
+
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Description>A .NET wrapper for D3D11.</Description>
+		<PackageTags>DirectX D3D11 Hexa HexaGen Source Generator C# .NET DotNet Sharp Windows Bindings Wrapper Native</PackageTags>
+		<Authors>Juna Meinhold</Authors>
+		<Copyright>Copyright (c) 2024 Juna Meinhold</Copyright>
+		<PackageProjectUrl>https://github.com/HexaEngine/Hexa.NET.DirectX</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/HexaEngine/Hexa.NET.DirectX</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Hexa.NET.D3DCommon\Hexa.NET.D3DCommon.csproj" />
+		<ProjectReference Include="..\Hexa.NET.DXGI\Hexa.NET.DXGI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HexaGen.Runtime" Version="1.1.13" />
+		<PackageReference Include="HexaGen.Runtime.COM" Version="1.1.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="../LICENSE.txt" Pack="true" PackagePath="\" />
+		<Content Include="../README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+</Project>

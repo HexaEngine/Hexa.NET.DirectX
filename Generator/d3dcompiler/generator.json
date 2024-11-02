@@ -1,0 +1,18 @@
+{
+  "Namespace": "Hexa.NET.D3DCompiler",
+  "ApiName": "D3DCompiler",
+  "LibName": "d3dcompiler_47",
+  "Usings": [ "Hexa.NET.D3DCommon", "Hexa.NET.D3D11" ],
+  "GenerateSizeOfStructs": false,
+  "GenerateMetadata": true,
+  "BoolType": 1,
+  "TypeMappings": {
+    "DXGI_USAGE": "uint",
+    "RECT": "Rect32",
+    "POINT": "Point32",
+    "SIZE_T": "nuint",
+    "LUID": "Luid",
+    "IID": "Guid",
+    "ID3DBlob": "ID3D10Blob"
+  }
+}

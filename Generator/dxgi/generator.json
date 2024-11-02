@@ -1,0 +1,26 @@
+{
+  "Namespace": "Hexa.NET.DXGI",
+  "ApiName": "DXGI",
+  "LibName": "dxgi",
+  "Usings": [ "System.Numerics" ],
+  "EnableExperimentalOptions": true,
+  "GenerateConstructorsForStructs": true,
+  "GenerateSizeOfStructs": false,
+  "GenerateMetadata": true,
+  "BoolType": 1,
+  "NameMappings": {
+    "PFN_DESTRUCTION_CALLBACK": "PfnDestructionCallback"
+  },
+  "TypeMappings": {
+    "DXGI_USAGE": "uint",
+    "RECT": "Rect32",
+    "POINT": "Point32",
+    "SIZE_T": "nuint",
+    "LUID": "Luid",
+    "IID": "Guid",
+    "SECURITY_ATTRIBUTES": "SecurityAttributes",
+    "DXGI_RGBA": "Vector4",
+    "DXGI_DEBUG_ID": "Guid",
+    "DXGI_INFO_QUEUE_MESSAGE_ID": "int"
+  }
+}
